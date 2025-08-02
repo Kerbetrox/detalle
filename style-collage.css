@@ -1,0 +1,129 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff8dc;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+
+.heart-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+
+.collage-container {
+  text-align: center;
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #ffd700;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #ffd700;
+}
+
+
+h1 {
+  color: #ffd700;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.intro {
+  color: #ffeb8a;
+  margin-bottom: 40px;
+  font-size: 1.1em;
+}
+
+
+.heart-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Mantiene 5 columnas fijas */
+  grid-auto-rows: 100px;                 /* Altura constante por fila */
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+
+.item {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: transparent;
+}
+
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 10px #ffd700;
+}
+
+
+.empty {
+  visibility: hidden;
+}
+
+
+.rising-heart {
+  position: absolute;
+  bottom: -30px;
+  width: 25px;
+  height: 25px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Heart_corazón.svg/2048px-Heart_corazón.svg.png') no-repeat center/contain;
+  animation: rise 10s linear forwards;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .heart-grid {
+    grid-auto-rows: 70px; /* Más bajo en pantallas pequeñas */
+  }
+
+  .item img {
+    border-radius: 10px;
+  }
+
+  .collage-container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .intro {
+    font-size: 1em;
+  }
+}
